@@ -1,0 +1,1376 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CAT Hukum Newton | Fisika SMA Kelas X</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --blue: #2563eb;
+    --dark-blue: #123b73;
+    --light-blue: #eff6ff;
+    --text: #1e293b;
+    --muted: #64748b;
+    --green: #16a34a;
+    --red: #dc2626;
+    --orange: #f59e0b;
+    --border: #e2e8f0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #eef3f9;
+    color: var(--text);
+    min-height: 100vh;
+}
+
+header {
+    background: linear-gradient(135deg, var(--dark-blue), var(--blue));
+    color: white;
+    text-align: center;
+    padding: 25px 15px;
+}
+
+header h1 {
+    font-size: 24px;
+    margin-bottom: 9px;
+    letter-spacing: .5px;
+}
+
+header p {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.container {
+    width: 100%;
+    max-width: 850px;
+    margin: 22px auto;
+    padding: 0 13px;
+}
+
+.card {
+    background: white;
+    padding: 23px;
+    border-radius: 17px;
+    margin-bottom: 18px;
+    box-shadow: 0 6px 22px rgba(15, 23, 42, .06);
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 12px;
+}
+
+h3 {
+    font-size: 17px;
+}
+
+p {
+    line-height: 1.65;
+}
+
+.hidden {
+    display: none !important;
+}
+
+label {
+    display: block;
+    margin: 15px 0 7px;
+    font-weight: bold;
+}
+
+input {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    font-size: 16px;
+    background: white;
+}
+
+input:focus {
+    outline: 2px solid #93c5fd;
+    border-color: var(--blue);
+}
+
+button {
+    border: none;
+    border-radius: 9px;
+    padding: 12px 15px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .15s;
+}
+
+button:focus-visible {
+    outline: 3px solid #93c5fd;
+}
+
+button:disabled {
+    opacity: .45;
+    cursor: not-allowed;
+}
+
+.primary {
+    background: var(--blue);
+    color: white;
+}
+
+.primary:hover {
+    background: #1d4ed8;
+}
+
+.secondary {
+    background: #e2e8f0;
+    color: var(--text);
+}
+
+.warning {
+    background: var(--orange);
+    color: white;
+}
+
+.danger {
+    background: var(--red);
+    color: white;
+}
+
+.full {
+    width: 100%;
+    margin-top: 17px;
+}
+
+/* HALAMAN DEPAN */
+
+.welcome-subtitle {
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 18px;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.info-box {
+    background: var(--light-blue);
+    padding: 15px 6px;
+    text-align: center;
+    border-radius: 12px;
+}
+
+.info-box strong {
+    display: block;
+    font-size: 23px;
+    color: #1d4ed8;
+    margin-bottom: 7px;
+}
+
+.info-box span {
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.instruction-panel {
+    background: #f8fafc;
+    border: 1px solid var(--border);
+    border-radius: 13px;
+    padding: 17px;
+    margin: 20px 0;
+}
+
+.instruction-panel h3 {
+    color: var(--dark-blue);
+    margin-bottom: 15px;
+}
+
+.instruction-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 11px;
+    margin: 15px 0;
+}
+
+.step-number {
+    min-width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #dbeafe;
+    color: #1d4ed8;
+    font-weight: bold;
+}
+
+.instruction-item strong {
+    display: block;
+    margin: 2px 0 5px;
+}
+
+.instruction-item small {
+    display: block;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.65;
+}
+
+.rules-panel {
+    background: #fffbeb;
+    border: 1px solid #fde68a;
+    border-radius: 12px;
+    padding: 16px;
+    margin: 18px 0;
+}
+
+.rules-panel h3 {
+    color: #92400e;
+    margin-bottom: 10px;
+}
+
+.rules-panel ul {
+    padding-left: 21px;
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+.pass-info {
+    color: #991b1b;
+    font-weight: bold;
+}
+
+.start-note {
+    text-align: center;
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-top: 12px;
+}
+
+/* HALAMAN UJIAN */
+
+.exam-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.student-info {
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+}
+
+.timer {
+    background: #dcfce7;
+    color: #166534;
+    padding: 11px 15px;
+    border-radius: 9px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.timer.urgent {
+    background: #fee2e2;
+    color: #b91c1c;
+}
+
+.progress-track {
+    width: 100%;
+    height: 8px;
+    background: #e2e8f0;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0;
+    background: var(--blue);
+    transition: width .2s;
+}
+
+.question-number {
+    color: var(--blue);
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+.question-text {
+    font-size: 19px;
+    line-height: 1.7;
+    font-weight: bold;
+    margin-bottom: 20px;
+    overflow-wrap: anywhere;
+}
+
+.options {
+    display: grid;
+    gap: 11px;
+}
+
+.option {
+    width: 100%;
+    background: #f8fafc;
+    border: 2px solid var(--border);
+    text-align: left;
+    font-weight: normal;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+
+.option:hover {
+    border-color: #93c5fd;
+    background: var(--light-blue);
+}
+
+.option.selected {
+    background: #dbeafe;
+    border-color: var(--blue);
+    color: #1d4ed8;
+    font-weight: bold;
+}
+
+.navigation {
+    display: flex;
+    gap: 8px;
+    margin-top: 23px;
+}
+
+.navigation button {
+    flex: 1;
+    line-height: 1.4;
+}
+
+.question-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 8px;
+    margin: 17px 0;
+}
+
+.question-grid button {
+    background: #cbd5e1;
+    color: #334155;
+    min-height: 43px;
+    padding: 8px;
+}
+
+.question-grid button.current {
+    background: var(--blue);
+    color: white;
+}
+
+.question-grid button.answered {
+    background: var(--green);
+    color: white;
+}
+
+.question-grid button.marked {
+    outline: 3px solid var(--orange);
+    outline-offset: -3px;
+}
+
+.legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 12px;
+    line-height: 1.7;
+    margin: 12px 0;
+}
+
+.dot {
+    display: inline-block;
+    width: 11px;
+    height: 11px;
+    border-radius: 3px;
+    margin-right: 4px;
+}
+
+.blue { background: var(--blue); }
+.green { background: var(--green); }
+.gray { background: #cbd5e1; }
+.orange { background: var(--orange); }
+
+/* HASIL UJIAN */
+
+.result-score {
+    text-align: center;
+    font-size: 54px;
+    font-weight: bold;
+    margin: 20px 0;
+    color: var(--blue);
+}
+
+.result-status {
+    padding: 16px;
+    text-align: center;
+    font-size: 23px;
+    font-weight: bold;
+    border-radius: 11px;
+    margin: 18px 0;
+}
+
+.pass {
+    color: #166534;
+    background: #dcfce7;
+}
+
+.fail {
+    color: #991b1b;
+    background: #fee2e2;
+}
+
+.result-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.result-item {
+    background: var(--light-blue);
+    text-align: center;
+    padding: 15px 5px;
+    border-radius: 10px;
+}
+
+.result-item strong {
+    display: block;
+    font-size: 23px;
+    margin-bottom: 7px;
+}
+
+.result-item span {
+    font-size: 12px;
+}
+
+.result-message {
+    text-align: center;
+    line-height: 1.7;
+}
+
+.notice {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-top: 15px;
+}
+
+footer {
+    text-align: center;
+    color: var(--muted);
+    padding: 24px 12px 35px;
+    font-size: 12px;
+}
+
+@media (max-width: 500px) {
+    header {
+        padding: 22px 12px;
+    }
+
+    header h1 {
+        font-size: 21px;
+    }
+
+    .container {
+        margin-top: 16px;
+    }
+
+    .card {
+        padding: 17px;
+        border-radius: 14px;
+    }
+
+    h2 {
+        font-size: 22px;
+    }
+
+    .info-grid {
+        gap: 7px;
+    }
+
+    .info-box {
+        padding: 13px 4px;
+    }
+
+    .info-box strong {
+        font-size: 20px;
+    }
+
+    .info-box span {
+        font-size: 11px;
+    }
+
+    .instruction-panel,
+    .rules-panel {
+        padding: 13px;
+    }
+
+    .question-text {
+        font-size: 17px;
+    }
+
+    .navigation {
+        gap: 6px;
+    }
+
+    .navigation button {
+        padding: 11px 6px;
+        font-size: 12px;
+    }
+
+    .result-score {
+        font-size: 46px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>CAT HUKUM NEWTON</h1>
+    <p>Asesmen Berbasis Komputer | Fisika SMA Kelas X</p>
+</header>
+
+<main class="container">
+
+<!-- ================= HALAMAN DEPAN ================= -->
+
+<section id="startPage" class="card">
+
+    <h2>👋 Selamat Datang!</h2>
+
+    <p class="welcome-subtitle">
+        Selamat datang di CAT Hukum Newton.
+        Bacalah petunjuk berikut sebelum memulai agar kamu
+        memahami cara mengerjakan ujian dengan benar.
+    </p>
+
+    <div class="info-grid">
+        <div class="info-box">
+            <strong>20</strong>
+            <span>Jumlah Soal</span>
+        </div>
+
+        <div class="info-box">
+            <strong>30</strong>
+            <span>Waktu (Menit)</span>
+        </div>
+
+        <div class="info-box">
+            <strong>51+</strong>
+            <span>Nilai untuk Lulus</span>
+        </div>
+    </div>
+
+    <div class="instruction-panel">
+        <h3>📋 Cara Mengerjakan Ujian</h3>
+
+        <div class="instruction-item">
+            <div class="step-number">1</div>
+            <div>
+                <strong>Isi identitas peserta</strong>
+                <small>
+                    Masukkan nama lengkap dan kelas dengan benar
+                    sebelum menekan tombol mulai.
+                </small>
+            </div>
+        </div>
+
+        <div class="instruction-item">
+            <div class="step-number">2</div>
+            <div>
+                <strong>Baca soal dengan teliti</strong>
+                <small>
+                    Pilih satu jawaban yang paling tepat dari
+                    empat pilihan A, B, C, atau D.
+                </small>
+            </div>
+        </div>
+
+        <div class="instruction-item">
+            <div class="step-number">3</div>
+            <div>
+                <strong>Perhatikan waktu</strong>
+                <small>
+                    Kamu memiliki waktu 30 menit untuk mengerjakan
+                    20 soal. Timer berjalan setelah ujian dimulai.
+                </small>
+            </div>
+        </div>
+
+        <div class="instruction-item">
+            <div class="step-number">4</div>
+            <div>
+                <strong>Gunakan navigasi soal</strong>
+                <small>
+                    Tekan nomor soal untuk berpindah.
+                    Gunakan tombol Ragu-ragu untuk menandai
+                    soal yang ingin diperiksa kembali.
+                </small>
+            </div>
+        </div>
+
+        <div class="instruction-item">
+            <div class="step-number">5</div>
+            <div>
+                <strong>Periksa dan kumpulkan jawaban</strong>
+                <small>
+                    Pastikan tidak ada soal yang terlewat.
+                    Tekan Selesai dan Kumpulkan ketika sudah siap.
+                </small>
+            </div>
+        </div>
+    </div>
+
+    <div class="rules-panel">
+        <h3>⚠️ Peraturan dan Kelulusan</h3>
+
+        <ul>
+            <li>Terdapat 20 soal pilihan ganda.</li>
+            <li>Setiap soal memiliki satu jawaban benar.</li>
+            <li>Nilai maksimal adalah 100.</li>
+            <li>
+                <span class="pass-info">
+                    Nilai 50 atau kurang = TIDAK LULUS.
+                </span>
+            </li>
+            <li>Nilai di atas 50 = LULUS.</li>
+            <li>
+                Jika waktu habis, jawaban akan dikumpulkan
+                secara otomatis.
+            </li>
+        </ul>
+    </div>
+
+    <h3 style="margin:22px 0 8px;">✍️ Identitas Peserta</h3>
+
+    <label for="studentName">Nama Lengkap</label>
+    <input
+        id="studentName"
+        type="text"
+        placeholder="Masukkan nama lengkap"
+        autocomplete="name"
+    >
+
+    <label for="studentClass">Kelas</label>
+    <input
+        id="studentClass"
+        type="text"
+        placeholder="Contoh: X-A"
+    >
+
+    <button class="primary full" onclick="startExam()">
+        🚀 MULAI UJIAN
+    </button>
+
+    <p class="start-note">
+        Periksa kembali nama dan kelas sebelum memulai.
+        Setelah ujian dimulai, timer tidak dapat dihentikan.
+    </p>
+
+</section>
+
+<!-- ================= HALAMAN UJIAN ================= -->
+
+<section id="examPage" class="hidden">
+
+    <div class="card">
+
+        <div class="exam-top">
+            <div class="student-info">
+                <strong id="displayName"></strong><br>
+                <small id="displayClass"></small>
+            </div>
+
+            <div id="timer" class="timer">30:00</div>
+        </div>
+
+        <div class="progress-track">
+            <div id="progressBar" class="progress-bar"></div>
+        </div>
+
+        <div id="questionNumber" class="question-number"></div>
+
+        <div id="question" class="question-text"></div>
+
+        <div id="options" class="options"></div>
+
+        <div class="navigation">
+            <button id="prevBtn"
+                    class="secondary"
+                    onclick="previousQuestion()">
+                ← Sebelumnya
+            </button>
+
+            <button id="markBtn"
+                    class="warning"
+                    onclick="toggleMark()">
+                Ragu-ragu
+            </button>
+
+            <button id="nextBtn"
+                    class="primary"
+                    onclick="nextQuestion()">
+                Berikutnya →
+            </button>
+        </div>
+
+    </div>
+
+    <div class="card">
+        <h3>🧭 Navigasi Soal</h3>
+
+        <p class="notice">
+            Tekan nomor soal untuk berpindah ke soal yang diinginkan.
+        </p>
+
+        <div id="questionGrid" class="question-grid"></div>
+
+        <div class="legend">
+            <span><i class="dot blue"></i> Soal aktif</span>
+            <span><i class="dot green"></i> Sudah dijawab</span>
+            <span><i class="dot gray"></i> Belum dijawab</span>
+            <span><i class="dot orange"></i> Ragu-ragu</span>
+        </div>
+
+        <button class="danger full" onclick="confirmFinish()">
+            SELESAI DAN KUMPULKAN
+        </button>
+    </div>
+
+</section>
+
+<!-- ================= HALAMAN HASIL ================= -->
+
+<section id="resultPage" class="card hidden">
+
+    <h2 style="text-align:center;">📊 Hasil Ujian</h2>
+
+    <p id="resultName" class="result-message"></p>
+
+    <div id="score" class="result-score">0</div>
+
+    <div id="resultStatus" class="result-status"></div>
+
+    <p id="resultMessage" class="result-message"></p>
+
+    <div class="result-grid">
+        <div class="result-item">
+            <strong id="correctCount">0</strong>
+            <span>Benar</span>
+        </div>
+
+        <div class="result-item">
+            <strong id="wrongCount">0</strong>
+            <span>Salah</span>
+        </div>
+
+        <div class="result-item">
+            <strong id="unansweredCount">0</strong>
+            <span>Tidak Dijawab</span>
+        </div>
+    </div>
+
+    <p id="timeUsed" class="result-message"></p>
+
+    <button class="primary full" onclick="downloadResult()">
+        UNDUH HASIL CSV
+    </button>
+
+    <button class="secondary full" onclick="location.reload()">
+        KEMBALI KE HALAMAN AWAL
+    </button>
+
+    <p class="notice">
+        Unduhan CSV berisi hasil satu peserta.
+        Versi ini belum menyimpan nilai secara otomatis ke Google Sheets.
+    </p>
+
+</section>
+
+</main>
+
+<footer>
+    CAT Hukum Newton | Fisika SMA Kelas X
+</footer>
+
+<script>
+"use strict";
+
+/*
+BANK SOAL C1-C6.
+Level tersimpan untuk keperluan guru dan analisis.
+Level tidak ditampilkan pada layar siswa.
+*/
+
+const questionBank = [
+
+    // C1 - Mengingat
+    {
+        level: "C1",
+        q: "Hukum I Newton dikenal sebagai hukum ...",
+        o: ["Aksi dan reaksi", "Inersia", "Gravitasi", "Percepatan"],
+        a: 1
+    },
+    {
+        level: "C1",
+        q: "Satuan SI untuk gaya adalah ...",
+        o: ["Joule", "Watt", "Newton", "Pascal"],
+        a: 2
+    },
+    {
+        level: "C1",
+        q: "Persamaan matematis Hukum II Newton adalah ...",
+        o: ["F = m/a", "F = m × a", "F = m + a", "F = a/m"],
+        a: 1
+    },
+
+    // C2 - Memahami
+    {
+        level: "C2",
+        q: "Penumpang terdorong ke depan ketika bus direm mendadak. Peristiwa ini menunjukkan ...",
+        o: ["Hukum gravitasi", "Hukum I Newton", "Hukum III Newton", "Hukum kekekalan energi"],
+        a: 1
+    },
+    {
+        level: "C2",
+        q: "Jika resultan gaya pada benda sama dengan nol, benda dapat ...",
+        o: [
+            "Selalu mengalami percepatan",
+            "Diam atau bergerak dengan kecepatan konstan",
+            "Selalu bergerak semakin cepat",
+            "Selalu berubah arah"
+        ],
+        a: 1
+    },
+    {
+        level: "C2",
+        q: "Pasangan gaya aksi dan reaksi menurut Hukum III Newton memiliki ...",
+        o: [
+            "Besar sama dan arah berlawanan, bekerja pada benda berbeda",
+            "Besar berbeda dan arah sama",
+            "Besar dan arah sama",
+            "Arah sama dan bekerja pada benda yang sama"
+        ],
+        a: 0
+    },
+
+    // C3 - Menerapkan
+    {
+        level: "C3",
+        q: "Benda bermassa 5 kg diberi gaya resultan 20 N. Percepatan benda adalah ...",
+        o: ["2 m/s²", "4 m/s²", "5 m/s²", "10 m/s²"],
+        a: 1
+    },
+    {
+        level: "C3",
+        q: "Benda bermassa 10 kg mengalami percepatan 3 m/s². Resultan gayanya adalah ...",
+        o: ["13 N", "20 N", "30 N", "40 N"],
+        a: 2
+    },
+    {
+        level: "C3",
+        q: "Sebuah benda bermassa 10 kg mendapat gaya resultan 50 N. Percepatannya adalah ...",
+        o: ["2 m/s²", "5 m/s²", "10 m/s²", "500 m/s²"],
+        a: 1
+    },
+    {
+        level: "C3",
+        q: "Benda bermassa 2 kg mendapat gaya resultan 12 N. Percepatannya adalah ...",
+        o: ["4 m/s²", "6 m/s²", "10 m/s²", "24 m/s²"],
+        a: 1
+    },
+
+    // C4 - Menganalisis
+    {
+        level: "C4",
+        q: "Gaya 40 N ke kanan dan 25 N ke kiri bekerja pada benda. Resultan gayanya adalah ...",
+        o: ["15 N ke kanan", "15 N ke kiri", "65 N ke kanan", "65 N ke kiri"],
+        a: 0
+    },
+    {
+        level: "C4",
+        q: "Dua benda mendapat gaya resultan yang sama. Massa benda A 2 kg dan benda B 5 kg. Pernyataan yang benar adalah ...",
+        o: [
+            "Percepatan A lebih besar daripada B",
+            "Percepatan B lebih besar daripada A",
+            "Percepatan kedua benda selalu sama",
+            "Kedua benda tidak mengalami percepatan"
+        ],
+        a: 0
+    },
+    {
+        level: "C4",
+        q: "Sebuah benda bergerak ke kanan dan mengalami percepatan ke kiri. Selama benda masih bergerak ke kanan, kelajuannya akan ...",
+        o: ["Bertambah", "Berkurang", "Selalu tetap", "Langsung menjadi tak terhingga"],
+        a: 1
+    },
+    {
+        level: "C4",
+        q: "Gaya 50 N ke kanan dan gaya gesek 20 N ke kiri bekerja pada benda 10 kg. Pernyataan yang benar adalah ...",
+        o: [
+            "Resultan 70 N ke kanan",
+            "Resultan 30 N ke kanan dan percepatan 3 m/s²",
+            "Resultan 30 N ke kiri",
+            "Percepatan 5 m/s² ke kiri"
+        ],
+        a: 1
+    },
+
+    // C5 - Mengevaluasi
+    {
+        level: "C5",
+        q: "Siswa menyatakan berat buku dan gaya normal meja merupakan pasangan aksi-reaksi. Evaluasi yang tepat adalah ...",
+        o: [
+            "Benar, karena keduanya selalu sama besar",
+            "Benar, karena keduanya berlawanan arah",
+            "Salah, karena keduanya bekerja pada benda yang sama",
+            "Salah, karena gaya normal bukan gaya"
+        ],
+        a: 2
+    },
+    {
+        level: "C5",
+        q: "Siswa A menyatakan resultan gaya nol berarti benda pasti diam. Siswa B menyatakan benda juga dapat bergerak dengan kecepatan konstan. Penilaian yang benar adalah ...",
+        o: [
+            "A benar dan B salah",
+            "A salah dan B benar",
+            "Keduanya benar",
+            "Keduanya salah"
+        ],
+        a: 1
+    },
+    {
+        level: "C5",
+        q: "Benda bermassa 4 kg mendapat gaya resultan 12 N. Siswa menghitung percepatannya 2 m/s². Evaluasi yang tepat adalah ...",
+        o: [
+            "Benar, karena 12 dibagi 4 sama dengan 2",
+            "Salah, karena percepatannya 3 m/s²",
+            "Benar, karena massa dikalikan gaya",
+            "Salah, karena percepatannya 48 m/s²"
+        ],
+        a: 1
+    },
+
+    // C6 - Merancang/Menciptakan
+    {
+        level: "C6",
+        q: "Kamu diminta merancang percobaan pengaruh resultan gaya terhadap percepatan troli. Rancangan yang tepat adalah ...",
+        o: [
+            "Mengubah gaya, mempertahankan massa, lalu mengukur percepatan",
+            "Mengubah gaya dan massa sekaligus tanpa mengukur gerak",
+            "Mengamati warna troli",
+            "Mengukur panjang troli tanpa mengamati geraknya"
+        ],
+        a: 0
+    },
+    {
+        level: "C6",
+        q: "Kamu ingin merancang percobaan pengaruh massa terhadap percepatan. Rancangan yang tepat adalah ...",
+        o: [
+            "Mengubah massa dan gaya bersamaan tanpa pengukuran",
+            "Memberikan gaya resultan sama pada massa berbeda dan mengukur percepatan",
+            "Menggunakan massa sama tanpa gaya",
+            "Mengamati bentuk benda tanpa mengukur percepatan"
+        ],
+        a: 1
+    },
+    {
+        level: "C6",
+        q: "Kamu merancang solusi agar troli bermuatan besar memperoleh percepatan lebih besar. Solusi yang tepat adalah ...",
+        o: [
+            "Menambah massa tanpa mengubah gaya resultan",
+            "Mengurangi gaya resultan",
+            "Mengurangi massa yang dibawa atau memperbesar gaya resultan",
+            "Menghilangkan semua gaya tanpa mempertimbangkan gerak"
+        ],
+        a: 2
+    }
+];
+
+const EXAM_DURATION = 30 * 60;
+const PASSING_SCORE = 50;
+
+let questions = [];
+let answers = [];
+let marked = [];
+let index = 0;
+
+let studentName = "";
+let studentClass = "";
+
+let remainingTime = EXAM_DURATION;
+let timerInterval = null;
+let examStarted = false;
+let examFinished = false;
+let finalResult = null;
+
+function shuffle(array) {
+    const result = [...array];
+
+    for (let i = result.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [result[i], result[j]] = [result[j], result[i]];
+    }
+
+    return result;
+}
+
+function startExam() {
+    if (examStarted) return;
+
+    studentName = document.getElementById("studentName").value.trim();
+    studentClass = document.getElementById("studentClass").value.trim();
+
+    if (!studentName || !studentClass) {
+        alert("Silakan isi nama lengkap dan kelas terlebih dahulu.");
+        return;
+    }
+
+    /*
+    Acak soal dan pilihan jawaban.
+    Level C1-C6 tetap tersimpan di data.
+    */
+
+    questions = shuffle(questionBank).map(item => {
+        const correctOption = item.o[item.a];
+        const shuffledOptions = shuffle(item.o);
+
+        return {
+            level: item.level,
+            q: item.q,
+            o: shuffledOptions,
+            a: shuffledOptions.indexOf(correctOption)
+        };
+    });
+
+    answers = Array(questions.length).fill(null);
+    marked = Array(questions.length).fill(false);
+
+    index = 0;
+    remainingTime = EXAM_DURATION;
+    examStarted = true;
+
+    document.getElementById("displayName").textContent =
+        "Nama: " + studentName;
+
+    document.getElementById("displayClass").textContent =
+        "Kelas: " + studentClass;
+
+    document.getElementById("startPage").classList.add("hidden");
+    document.getElementById("examPage").classList.remove("hidden");
+
+    renderGrid();
+    showQuestion();
+    updateTimer();
+
+    timerInterval = setInterval(() => {
+        if (examFinished) return;
+
+        remainingTime = Math.max(0, remainingTime - 1);
+        updateTimer();
+
+        if (remainingTime <= 0) {
+            finishExam(true);
+        }
+    }, 1000);
+}
+
+function showQuestion() {
+    if (!questions.length || examFinished) return;
+
+    const item = questions[index];
+
+    document.getElementById("questionNumber").textContent =
+        "Soal " + (index + 1) + " dari " + questions.length;
+
+    /*
+    Hanya teks pertanyaan ditampilkan.
+    Properti item.level tidak pernah dimasukkan ke layar.
+    */
+
+    document.getElementById("question").textContent = item.q;
+
+    document.getElementById("progressBar").style.width =
+        ((index + 1) / questions.length * 100) + "%";
+
+    const optionsContainer = document.getElementById("options");
+    optionsContainer.innerHTML = "";
+
+    item.o.forEach((option, i) => {
+        const button = document.createElement("button");
+
+        button.type = "button";
+        button.className = "option";
+        button.textContent = String.fromCharCode(65 + i) + ". " + option;
+
+        if (answers[index] === i) {
+            button.classList.add("selected");
+        }
+
+        button.onclick = () => {
+            answers[index] = i;
+            showQuestion();
+        };
+
+        optionsContainer.appendChild(button);
+    });
+
+    document.getElementById("prevBtn").disabled = index === 0;
+
+    document.getElementById("nextBtn").textContent =
+        index === questions.length - 1
+            ? "Soal Terakhir"
+            : "Berikutnya →";
+
+    document.getElementById("markBtn").textContent =
+        marked[index] ? "Batalkan Ragu-ragu" : "Ragu-ragu";
+
+    renderGrid();
+}
+
+function previousQuestion() {
+    if (index > 0 && !examFinished) {
+        index--;
+        showQuestion();
+    }
+}
+
+function nextQuestion() {
+    if (index < questions.length - 1 && !examFinished) {
+        index++;
+        showQuestion();
+    } else {
+        alert("Kamu sedang berada di soal terakhir.");
+    }
+}
+
+function toggleMark() {
+    if (examFinished) return;
+
+    marked[index] = !marked[index];
+    showQuestion();
+}
+
+function renderGrid() {
+    const grid = document.getElementById("questionGrid");
+    grid.innerHTML = "";
+
+    questions.forEach((item, i) => {
+        const button = document.createElement("button");
+
+        button.type = "button";
+        button.textContent = i + 1;
+
+        if (answers[i] !== null) {
+            button.classList.add("answered");
+        }
+
+        if (marked[i]) {
+            button.classList.add("marked");
+        }
+
+        if (i === index) {
+            button.classList.add("current");
+        }
+
+        button.onclick = () => {
+            if (examFinished) return;
+            index = i;
+            showQuestion();
+        };
+
+        grid.appendChild(button);
+    });
+}
+
+function updateTimer() {
+    const timer = document.getElementById("timer");
+
+    const minutes = Math.floor(remainingTime / 60);
+    const seconds = remainingTime % 60;
+
+    timer.textContent =
+        String(minutes).padStart(2, "0") + ":" +
+        String(seconds).padStart(2, "0");
+
+    timer.classList.toggle("urgent", remainingTime <= 300);
+}
+
+function confirmFinish() {
+    if (examFinished) return;
+
+    const unanswered = answers.filter(answer => answer === null).length;
+
+    let message = "Apakah kamu yakin ingin mengumpulkan ujian?";
+
+    if (unanswered > 0) {
+        message += "\nMasih ada " + unanswered + " soal yang belum dijawab.";
+    }
+
+    if (confirm(message)) {
+        finishExam(false);
+    }
+}
+
+function finishExam(timeExpired) {
+    if (examFinished) return;
+
+    examFinished = true;
+
+    if (timerInterval !== null) {
+        clearInterval(timerInterval);
+    }
+
+    let correct = 0;
+    let wrong = 0;
+    let unanswered = 0;
+
+    questions.forEach((item, i) => {
+        if (answers[i] === null) {
+            unanswered++;
+        } else if (answers[i] === item.a) {
+            correct++;
+        } else {
+            wrong++;
+        }
+    });
+
+    const score = Math.round(correct / questions.length * 100);
+
+    /*
+    Nilai harus lebih dari 50 untuk dinyatakan lulus.
+    Nilai 50 atau kurang dinyatakan tidak lulus.
+    */
+
+    const passed = score > PASSING_SCORE;
+    const usedTime = EXAM_DURATION - remainingTime;
+
+    finalResult = {
+        waktu: new Date().toLocaleString("id-ID"),
+        nama: studentName,
+        kelas: studentClass,
+        benar: correct,
+        salah: wrong,
+        kosong: unanswered,
+        total: questions.length,
+        nilai: score,
+        status: passed ? "LULUS" : "TIDAK LULUS",
+        waktuDetik: usedTime
+    };
+
+    document.getElementById("examPage").classList.add("hidden");
+    document.getElementById("resultPage").classList.remove("hidden");
+
+    document.getElementById("resultName").textContent =
+        studentName + " | Kelas " + studentClass;
+
+    document.getElementById("score").textContent = score;
+
+    const statusElement = document.getElementById("resultStatus");
+
+    statusElement.textContent = passed ? "LULUS" : "TIDAK LULUS";
+    statusElement.className =
+        "result-status " + (passed ? "pass" : "fail");
+
+    document.getElementById("correctCount").textContent = correct;
+    document.getElementById("wrongCount").textContent = wrong;
+    document.getElementById("unansweredCount").textContent = unanswered;
+
+    let message = timeExpired
+        ? "Waktu habis. Jawaban telah dikumpulkan otomatis. "
+        : "";
+
+    message += passed
+        ? "Selamat, kamu lulus karena nilai lebih dari 50."
+        : "Kamu belum lulus. Nilai harus lebih dari 50 untuk lulus.";
+
+    document.getElementById("resultMessage").textContent = message;
+
+    const minutes = Math.floor(usedTime / 60);
+    const seconds = usedTime % 60;
+
+    document.getElementById("timeUsed").textContent =
+        "Waktu pengerjaan: " + minutes + " menit " + seconds + " detik.";
+}
+
+function csvEscape(value) {
+    return '"' + String(value ?? "").replace(/"/g, '""') + '"';
+}
+
+function downloadResult() {
+    if (!finalResult) return;
+
+    const headers = [
+        "Waktu",
+        "Nama",
+        "Kelas",
+        "Benar",
+        "Salah",
+        "Tidak Dijawab",
+        "Total Soal",
+        "Nilai",
+        "Status Kelulusan",
+        "Waktu Pengerjaan (detik)"
+    ];
+
+    const values = [
+        finalResult.waktu,
+        finalResult.nama,
+        finalResult.kelas,
+        finalResult.benar,
+        finalResult.salah,
+        finalResult.kosong,
+        finalResult.total,
+        finalResult.nilai,
+        finalResult.status,
+        finalResult.waktuDetik
+    ];
+
+    const csv = [
+        headers.map(csvEscape).join(","),
+        values.map(csvEscape).join(",")
+    ].join("\r\n");
+
+    const blob = new Blob(
+        ["\uFEFF" + csv],
+        {type: "text/csv;charset=utf-8;"}
+    );
+
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+
+    link.href = url;
+    link.download = "Hasil_CAT_Hukum_Newton.csv";
+
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+</script>
+
+</body>
+</html>
